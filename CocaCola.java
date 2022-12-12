@@ -2,14 +2,18 @@ public class CocaCola extends Estocavel{
     
     public CocaCola(){
         super("Refrigerante Coca-Cola", 5.00);
-        this.retirar();
+    }
+
+    @Override
+    public void checarEstoque() throws EstoqueInsuficienteException{
+        super.checarEstoque(super.getNome(), super.getCocaCola());
     }
 
     @Override
     public void retirar(){
         try {
             
-            checarEstoque(super.getNome(), super.getCocaCola());
+            this.checarEstoque();
 
             super.setCocaCola(super.getCocaCola()-1);
 

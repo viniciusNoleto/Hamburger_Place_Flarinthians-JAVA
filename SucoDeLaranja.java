@@ -2,14 +2,18 @@ public class SucoDeLaranja extends Estocavel{
     
     public SucoDeLaranja(){
         super("Suco de Laranja", 4.00);
-        this.retirar();
+    }
+
+    @Override
+    public void checarEstoque() throws EstoqueInsuficienteException{
+        super.checarEstoque(super.getNome(), super.getSucoDeLaranja());
     }
 
     @Override
     public void retirar(){
         try {
             
-            checarEstoque(super.getNome(), super.getSucoDeLaranja());
+            this.checarEstoque();
 
             super.setSucoDeLaranja(super.getSucoDeLaranja()-1);
 

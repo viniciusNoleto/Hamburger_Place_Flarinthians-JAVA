@@ -155,6 +155,9 @@ public abstract class Estocavel implements Retiravel{
     }
 
     // Métodos de Controle
+
+    public void checarEstoque() throws EstoqueInsuficienteException{};
+
     public void checarEstoque(String produto ,int ...insumos) throws EstoqueInsuficienteException{
         int errors = 0;
         for (int i = 0; i < insumos.length; i++) {
@@ -190,5 +193,7 @@ public abstract class Estocavel implements Retiravel{
         this.nome = nome;
         this.valor = valor;
     }
+
+    public Estocavel(){};
 
 }

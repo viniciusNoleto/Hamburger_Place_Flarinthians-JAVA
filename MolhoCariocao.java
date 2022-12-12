@@ -2,14 +2,18 @@ public class MolhoCariocao extends Estocavel{
 
     public MolhoCariocao(){
         super("Molho Libertadores", 0.00);
-        this.retirar();
     }
+
+    @Override
+    public void checarEstoque() throws EstoqueInsuficienteException{
+        super.checarEstoque(super.getNome(), super.getCheddar());
+    }    
 
     @Override
     public void retirar(){
         try {
             
-            checarEstoque(super.getNome(), super.getCheddar());
+            this.checarEstoque();
 
             super.setCheddar(super.getCheddar()-1);
 

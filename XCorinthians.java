@@ -2,14 +2,18 @@ public class XCorinthians extends Estocavel{
 
     public XCorinthians(){
         super("X-Corinthians", 25.00);
-        this.retirar();
+    }
+
+    @Override
+    public void checarEstoque() throws EstoqueInsuficienteException{
+        super.checarEstoque(super.getNome(), super.getPao(), super.getQueijo(), super.getCarne(), super.getBacon(), super.getCebola());
     }
 
     @Override
     public void retirar(){
         try {
             
-            checarEstoque(super.getNome(), super.getPao(), super.getQueijo(), super.getCarne(), super.getBacon(), super.getCebola());
+            this.checarEstoque();
 
             super.setPao(super.getPao()-1);
             super.setQueijo(super.getQueijo()-1);

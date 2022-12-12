@@ -2,14 +2,18 @@ public class GuaranaAntartica extends Estocavel{
     
     public GuaranaAntartica(){
         super("Refrigerante Coca-Cola", 5.00);
-        this.retirar();
+    }
+
+    @Override
+    public void checarEstoque() throws EstoqueInsuficienteException{
+        super.checarEstoque(super.getNome(), super.getGuaranaAntartica());
     }
 
     @Override
     public void retirar(){
         try {
             
-            checarEstoque(super.getNome(), super.getGuaranaAntartica());
+            this.checarEstoque();
 
             super.setGuaranaAntartica(super.getGuaranaAntartica()-1);
 

@@ -2,14 +2,18 @@ public class XBrasileirao extends Estocavel{
 
     public XBrasileirao(){
         super("X-Brasileirão", 35.00);
-        this.retirar();
+    }
+
+    @Override
+    public void checarEstoque() throws EstoqueInsuficienteException{
+        super.checarEstoque(super.getNome(), super.getPao(), super.getQueijo(), super.getCarne(), super.getBacon(), super.getCebola(), super.getTomate(), super.getAlface(), super.getOvo(), super.getBarbecue(), super.getCheddar(), super.getAlho());
     }
 
     @Override
     public void retirar(){
         try {
             
-            checarEstoque(super.getNome(), super.getPao(), super.getQueijo(), super.getCarne(), super.getBacon(), super.getCebola(), super.getTomate(), super.getAlface(), super.getOvo(), super.getBarbecue(), super.getCheddar(), super.getAlho());
+            this.checarEstoque();
 
             super.setPao(super.getPao()-1);
             super.setQueijo(super.getQueijo()-1);
